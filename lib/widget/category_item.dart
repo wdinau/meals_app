@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/widget/category_meals_screen.dart';
 
 class CategoryItem extends StatelessWidget {
   final String categoryName;
@@ -14,10 +13,12 @@ class CategoryItem extends StatelessWidget {
       : super(key: key);
 
   void selectCategory(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return CategoryMealsScreen(
-          key: ValueKey(categoryId), categoryName: categoryName);
-    }));
+    // Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+    //   return CategoryMealsScreen(
+    //       key: ValueKey(categoryId), categoryName: categoryName);
+    // }));
+    Navigator.of(context).pushNamed("/categories/meals",
+        arguments: {"id": categoryId, "title": categoryName});
   }
 
   @override
